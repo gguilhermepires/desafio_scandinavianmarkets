@@ -44,11 +44,11 @@ const [listPrice,setListPrice] = useState([]);
     if(listPrice.length > 0){
       return listPrice.map(elem=>{
         return (
-          <tr key={elem.name}>
-          <td>{elem.coin}</td>
-          <td>{elem.ask}</td>
-          <td>{elem.bid}</td>
-          <td>{elem.spread}</td>
+          <tr key={elem.coin}>
+            <td>{elem.coin}</td>
+            <td>{elem.ask}</td>
+            <td>{elem.bid}</td>
+            <td>{elem.spread}</td>
           </tr>
         );
       });

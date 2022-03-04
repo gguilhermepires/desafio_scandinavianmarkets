@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+
+  coin-front:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+    env_file:
+        - .env
+    entrypoint: ['yarn', 'start']
+    ports:
+      - "3000:3000"  
+
+volumes:
+  pg_data:
