@@ -5,8 +5,7 @@ module.exports = class BinanceService {
     constructor() { }
 
     static async newOrder(coin = '') {
-        const info = await api.newOrder(coin, 1000);
-        return info;
+        return await api.newOrder(coin, 1000);
     }
 
     static async sellOrder(coin = '') {
@@ -18,8 +17,7 @@ module.exports = class BinanceService {
         console.log('price');
         console.log(price);
 
-        const info = await api.newOrder(coin, 999.0, price, 'SELL', 'LIMIT');
-        return info;
+        return await api.newOrder(coin, 999.0, price, 'SELL', 'LIMIT');
     }
 
     static async getAccountInfo(coin = '') {

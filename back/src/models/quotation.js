@@ -17,7 +17,4 @@ module.exports = class Quotation {
         obj.spread = 0;
         return obj;
     }
-    toString() {
-        return 'Pity the Foo';
-    }
 }
