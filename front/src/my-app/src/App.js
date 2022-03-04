@@ -1,17 +1,22 @@
 import React, {  useEffect } from "react";
 import useWebSocket from 'react-use-websocket';
 import { useState } from 'react';
-import { Nav, NavbarText,
-  Navbar,NavbarBrand,NavbarToggler,
-   Collapse, Table, Container, Row} from 'reactstrap';
-
+import { Nav,
+  NavbarText,
+  Navbar,
+  NavbarBrand,
+  NavbarToggler,
+  Collapse,
+  Table,
+  Container,
+  Row
+} from 'reactstrap';
 
 function App() {
-
 const [lastUpdate,setLastUpdate] = useState('');
 const [listPrice,setListPrice] = useState([]);
 
-  let  { lastJsonMessage, sendMessage } = useWebSocket('ws://localhost:8080', {
+  let  { lastJsonMessage, sendMessage } = useWebSocket(`ws://${process.env.REACT_APP_API_URL}`, {
  protocols: 'echo-protocol',
   onOpen: () => console.log(`Connected to App WS`),
     onMessage: (a) => {
@@ -21,7 +26,7 @@ const [listPrice,setListPrice] = useState([]);
           if(response.code == 200){
             setListPrice(response.data);
           }
-          setLastUpdate(Date.now().toString());
+          setLastUpdate(new Date().toLocaleString());
         }
       } catch (error) {
         console.log(error);
@@ -74,7 +79,7 @@ const createNavBar = () => {
         >
         </Nav>
         <NavbarText>
-          Last update: {lastUpdate}
+          Last update: {lastUpdate} 
         </NavbarText>
       </Collapse>
     </Navbar>
