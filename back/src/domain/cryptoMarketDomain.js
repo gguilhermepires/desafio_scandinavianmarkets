@@ -1,20 +1,20 @@
 const ResponseServer = require('../infrastructure/responseServer');
 const CryptoMarketService = require('../services/cryptoMarketService');
-module.exports =  class CryptoMarketDomain {
+module.exports = class CryptoMarketDomain {
 
-  static async processMessage(message){
-  
+  static async processMessage(message) {
+
     let command = CryptoMarketService.extractCommandFromMessage(message);
-   
-    switch(command){
+
+    switch (command) {
       case 'MARKETVALUE':
         let table = [];
         const coins = CryptoMarketService.getMarketCoins();
-        
-        for (let i = 0; i < coins.length; i++) 
+
+        for (let i = 0; i < coins.length; i++)
           table.push(await CryptoMarketService.getCotation(coins[i], i));
-        
-        return ResponseServer.create(200, 'Carregado com sucesso',table);
+
+        return ResponseServer.create(200, 'Carregado com sucesso', table);
       default:
         return ResponseServer.create(400, 'Message command invalid');
     }

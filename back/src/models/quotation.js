@@ -1,5 +1,5 @@
 module.exports = class Quotation {
-    
+
     constructor() {
         this.id = 0;
         this.coin = 0;
@@ -8,7 +8,7 @@ module.exports = class Quotation {
         this.spread = 0;
     }
 
-    static createFromBinancePrice(id, coin, binacePrice){
+    static createFromBinancePrice(id, coin, binacePrice) {
         let obj = new Quotation();
         obj.id = id;
         obj.coin = coin;
@@ -17,7 +17,7 @@ module.exports = class Quotation {
         obj.spread = 0;
         return obj;
     }
-    toString(){
+    toString() {
         return 'Pity the Foo';
-      }
+    }
 }
