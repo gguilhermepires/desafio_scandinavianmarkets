@@ -17,7 +17,10 @@ const [listPrice,setListPrice] = useState([]);
     onMessage: (a) => {
       try {
         if (a.data) {
-          setListPrice(JSON.parse(a.data).table);
+          let response = JSON.parse(a.data);
+          if(response.code == 200){
+            setListPrice(response.data);
+          }
           setLastUpdate(Date.now().toString());
         }
       } catch (error) {
@@ -42,10 +45,10 @@ const [listPrice,setListPrice] = useState([]);
       return listPrice.map(elem=>{
         return (
           <tr key={elem.name}>
-          <td>{elem.name}</td>
+          <td>{elem.coin}</td>
           <td>{elem.ask}</td>
           <td>{elem.bid}</td>
-          <td>{elem.spred}</td>
+          <td>{elem.spread}</td>
           </tr>
         );
       });

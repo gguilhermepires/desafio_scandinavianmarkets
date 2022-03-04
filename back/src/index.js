@@ -44,7 +44,6 @@ wsServer.on('request', function(request) {
     }catch(e){
       response = ResponseServer.create(500, e);
     }
-    console.log(response.toJson());
     connection.sendUTF(response.toJson());
   });
 
