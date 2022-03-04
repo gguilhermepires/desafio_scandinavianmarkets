@@ -12,6 +12,3 @@ services:
     entrypoint: ['yarn', 'start']
     ports:
       - "3000:3000"  
-
-volumes:
-  pg_data:
