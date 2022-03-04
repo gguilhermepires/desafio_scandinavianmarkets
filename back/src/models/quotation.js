@@ -14,7 +14,7 @@ module.exports = class Quotation {
         obj.coin = coin;
         obj.ask = binacePrice.ask;
         obj.bid = binacePrice.bid;
-        obj.spread = 0;
+        obj.spread = binacePrice.spread;
         return obj;
     }
 }
