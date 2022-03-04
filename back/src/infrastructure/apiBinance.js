@@ -60,9 +60,6 @@ async function time() {
     return publicCall('/v3/time')
 }
 
-async function depth(symbol = 'BTCBRL', limit = 5) {
-    return publicCall('/v3/depth?', { symbol, limit })
-}
 
 async function depth(symbol = 'BTCBRL', limit = 5) {
     return publicCall('/v3/depth?', { symbol, limit })
